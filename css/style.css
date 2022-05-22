@@ -1,0 +1,10 @@
+form{
+    box-sizing: border-box;
+    padding:20px;
+    box-shadow:0px 0px 2px 2px rgb(215, 210, 210);
+}
+
+.navbar-brand{
+    color:#fff;
+}
+
