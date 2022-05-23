@@ -1,4 +1,6 @@
 $(document).ready(function() { 
+    
+    $("#tasks-list").html(localStorage.getItem("tasks-list"));
 
     $(".add-tasks").submit(function(event){
 
@@ -14,6 +16,8 @@ $(document).ready(function() {
         if (category && startTime && endTime && taskName && taskLocation) {
             //Display a new task
             $("#tasks-list").append("<div class='list-group-item list-group-item-action flex-column align-items-start task "+ category.toLowerCase().replace(" ", "-") + "'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>" + taskName +" <span><small>[" + startTime +" to " + endTime + "] </small></span> <span class='close'>x</span></h5><small>" + category + " | " +taskLocation + "</small></div></div>");
+            //Save in local storage
+            localStorage.setItem("tasks-list", $("#tasks-list").html());
         }
     });
 
@@ -35,6 +39,8 @@ $(document).ready(function() {
         $(this).fadeOut(500, function(){
             $(this).closest(".list-group-item").remove();
         })
+        //update local storage
+        localStorage.setItem("tasks-list", $("#tasks-list").html());
     })
 
 });
