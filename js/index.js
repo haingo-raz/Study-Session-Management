@@ -14,11 +14,19 @@ $(document).ready(function() {
         var taskLocation = $("#inputTaskLocation").val();
 
         if (category && startTime && endTime && taskName && taskLocation) {
+            if(taskName.length < 3){
+                $("#feedback").html("Task name should be longer than 3 characters!"); 
+                return;
+            }
             //Display a new task
             $("#tasks-list").append("<div class='list-group-item list-group-item-action flex-column align-items-start task "+ category.toLowerCase().replace(" ", "-") + "'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>" + taskName +" <span><small>[" + startTime +" to " + endTime + "] </small></span> <span class='close'>x</span></h5><small>" + category + " | " +taskLocation + "</small></div></div>");
             //Save in local storage
             localStorage.setItem("tasks-list", $("#tasks-list").html());
-        }
+            $("#inputStartTime, #inputEndTime, #inputTaskName, #inputTaskLocation").val("");
+            $("#feedback").html("Task added!"); 
+        }else{
+            $("#feedback").html("Please fill out all the fields!"); 
+        } 
     });
 
   
