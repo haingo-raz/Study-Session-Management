@@ -8,3 +8,16 @@ form{
     color:#fff;
 }
 
+.location-link{
+    color:rgb(163, 160, 160);
+    cursor:pointer;
+}
+
+.location-link:hover{
+    text-decoration:none;
+}
+
+.btn-delete-all{
+    margin-bottom:20px;
+}
+
