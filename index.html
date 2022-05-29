@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/book.svg">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/index.js"></script>
@@ -15,17 +17,16 @@
 <body>
     <header>
         <nav class="navbar bg-primary text-light">
-            <a class="navbar-brand" href="#"><p class="text-light">Study session management</p></a>
+            <a class="navbar-brand" id="nav-brand" href="#"><p class="text-light"><i class="bi bi-book"></i> Study session management</p></a>
         </nav>
     </header>
-    <br>
     
     <div class="container">
 
         <div class="row">
             <!--Filters-->
-            <div class="col-md-3 ">
-                <div class="list-group">
+            <div class="col-md-3">
+                <div class="list-group" id="filters-list">
                     <a href="#" id="all" class="list-group-item filter active">All</a>
                     <a href="#" id="mathematics" class="list-group-item filter">Mathematics</a>
                     <a href="#" id="languages-art" class="list-group-item filter">Languages art</a>
@@ -33,6 +34,9 @@
                     <a href="#" id="philosophy" class="list-group-item filter">Philosophy</a>
                     <a href="#" id="history" class="list-group-item filter">History</a>
                     <a href="#" id="other" class="list-group-item filter">Other</a>
+                </div>
+                <div class="">
+                    <button type="button" id="deleteAll" class="btn btn-light btn-delete-all">Empty tasks</button>
                 </div>
             </div>
 
@@ -48,39 +52,52 @@
                 <form class="add-tasks">
                     <!--Task category-->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Category</label>
-                        <select class="form-control" id="inputCategory">
-                            <option>Mathematics</option>
-                            <option>Languages art</option>
-                            <option>Science</option>
-                            <option>Philosophy</option>
-                            <option>History</option>
-                            <option>Other</option>
+                        <label for="category">Category<span class="text-warning">*</span></label>
+                        <select class="form-control" id="inputCategory" name="inputCategory">
+                            <option value="other">Other</option>
+                            <option value="mathematics" selected>Mathematics</option>
+                            <option value="languages-art">Languages art</option>
+                            <option value="science">Science</option>
+                            <option value="philosophy">Philosophy</option>
+                            <option value="history">History</option>
                         </select>
+                    </div>
+                    <div class="form-group hidden" id="otherCategory">
+                        <label for="other-category">Custom category<span class="text-warning">*</span></label>
+                        <input type="text" class="form-control" id="inputOtherCategory">
                     </div>
                     <!--Task duration-->
                     <div class="form-group">
-                        <label for="inputStartTime">Start time</label>
-                        <input type="time" class="form-control" id="inputStartTime" placeholder="00:00">
+                        <label for="inputStartTime">Start time<span class="text-warning">*</span></label>
+                        <input type="time" class="form-control" id="inputStartTime">
                     </div>
                     <div class="form-group">
-                        <label for="inputEndTime">End time</label>
-                        <input type="time" class="form-control" id="inputEndTime" placeholder="00:00">
+                        <label for="inputEndTime">End time<span class="text-warning">*</span></label>
+                        <input type="time" class="form-control" id="inputEndTime">
                     </div>
                     <!--Task Name-->
                     <div class="form-group">
-                        <label for="inputTaskName">Task Name</label>
-                        <input type="text" class="form-control" id="inputTaskName" placeholder="Empty recycle bin">
+                        <label for="inputTaskName">Task Name<span class="text-warning">*</span></label>
+                        <input type="text" class="form-control" id="inputTaskName" placeholder="Finish Algorithms homework">
                     </div>
                         <!--Task location-->
                         <div class="form-group">
-                        <label for="inputTaskLocation">Location</label>
+                        <label for="inputTaskLocation">Location<span class="text-warning">*</span></label>
                         <input type="text" class="form-control" id="inputTaskLocation" placeholder="Library">
                     </div>
+                    <p id="feedback" class="text-center"></p>
                     <button type="submit" class="btn btn-primary">Create new task</button>
                 </form>
             </div>
-        </div>      
-    </div>    
+        </div>   
+    </div> 
+
+    <div class="container my-5">
+        <footer>
+            <hr>
+            <p class="text-center text-muted">Track your study sessions and get productive.</p>
+            <p class="text-center text-muted"> Made with 💙 by HR.</p>   
+        </footer>  
+    </div>
 </body>
 </html>
