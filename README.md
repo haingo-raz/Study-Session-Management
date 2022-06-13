@@ -3,4 +3,4 @@ A simple project using jQuery and Bootstrap whereby users can generate a list of
 
 Live demo : study-session-management.surge.sh 
 
-![study session management] https://raw.githubusercontent.com/haingo-raz/study-session-management/master/assets/study.png
+![study session management] (https://raw.githubusercontent.com/haingo-raz/study-session-management/master/assets/study.png)
